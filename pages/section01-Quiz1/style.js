@@ -30,7 +30,7 @@ export const circle = styled.div`
 `
 export const name = styled.div`
   margin-left: 10px;
-  color: ${(props) => props.bool ? "green" : "red" };
+  color: ${(props) => props.bool ? "red" : "black" };
 `
 export const profileBody = styled.div`
   width: 380px;
