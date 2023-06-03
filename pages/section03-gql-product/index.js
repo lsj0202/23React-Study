@@ -2,8 +2,8 @@ import React from 'react'
 import { useMutation, gql } from '@apollo/client'
 
 const CREATE_BAORDED = gql`
-  mutation createBoard($seller: String, $createProductInput: CreateProductInput!){
-    createBoard(seller: $seller, createProductInput: $createProductInput){
+  mutation createProduct($seller: String, $createProductInput: CreateProductInput!){
+    createProduct(seller: $seller, createProductInput: $createProductInput){
       _id
       number
       message
