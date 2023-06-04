@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import React from 'react'
 
 const FETCH_BOARD = gql`
-  query fetchBoard($number: Int){
+  query fetchBoards($number: Int){
     fetchBoard(number: $number){
       number
       writer
