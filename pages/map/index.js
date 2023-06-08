@@ -1,20 +1,31 @@
-import React from 'react';
+import { useQuery, gql } from '@apollo/client'
+import { useRouter } from 'next/router';
+import React from 'react'
 
-const MyComponent = () => {
-  const data = [
-    { id: 1, name: 'John' },
-    { id: 2, name: 'Jane' },
-    { id: 3, name: 'Bob' }
-  ];
+const FETCH_BOARD = gql`
+  query{
+    fetchBoards{
+      number
+      writer
+      title
+      contents
+    }
+  }
+`
 
+export default function index() {
+  const { data } = useQuery(FETCH_BOARD);
+
+  console.log(data);
   return (
     <div>
-      <h1>User List</h1>
-      {data.map((text) => {
-
-      })}
+      {data?.fetchBoards.map((data) => (
+        <div key={data.number}>
+          <div>작성자: {data.writer}</div>
+          <div>제목: {data.title}</div>
+          <div>내용: {data.contents}</div>
+        </div>
+      ))}
     </div>
-  );
-};
-
-export default MyComponent;
+  )
+}
